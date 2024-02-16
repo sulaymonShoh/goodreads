@@ -19,9 +19,13 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 from config.settings import STATIC_URL, STATIC_ROOT, MEDIA_URL, MEDIA_ROOT
+from config.views import homepage_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', homepage_view, name="homepage"),
+    path('accounts/', include("apps.users.urls")),
+    # path('books/', include("apps.books.urls")),
 ]
 urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
