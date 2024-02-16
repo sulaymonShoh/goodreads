@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Homepage
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                {#                <img class="card-img-top" src="{% static 'img/carousel_goodreads.jpg' %}" alt="Card image cap">#}
+                <div class="card-body">
+                    <h4 class="card-title">Goodreads</h4>
+                    {#                    <p class="card-text"></p>#}
+                    <a href="#" class="btn btn-primary">Go to Goodreads</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Books</h4>
+                    <a href="#" class="btn btn-primary">Go to Books</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Authors</h4>
+                    <a href="#" class="btn btn-primary">Go to Authors</a>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+{% endblock %}
