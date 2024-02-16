@@ -15,6 +15,7 @@ class LanguageChoice(models.TextChoices):
 
 class Book(AbstractModel):
     title = models.CharField(max_length=128)
+    slug = models.SlugField(unique=True)
     description = models.TextField()
     published = models.DateField()
     isbn = models.CharField(unique=True, max_length=128)
