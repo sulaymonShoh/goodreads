@@ -17,7 +17,7 @@ class RegisterView(View):
             user = form.save()
             # login(request, user)
             messages.success(request, "User Successfully created")
-            return redirect('blog:login')
+            return redirect('login')
         return render(request, 'auth/register.html', {'form': form})
 
 
@@ -35,7 +35,7 @@ class LoginView(View):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Logged in successfully')
-                return redirect('blog:home_page')
+                return redirect('homepage')
 
         messages.warning(request, 'Username or password wrong')
         return render(request, 'auth/login.html', {'form': form})
