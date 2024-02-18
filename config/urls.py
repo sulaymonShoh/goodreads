@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage_view, name="homepage"),
     path('accounts/', include("apps.users.urls")),
-    # path('books/', include("apps.books.urls")),
+    path('books/', include("apps.books.urls")),
 ]
 urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
