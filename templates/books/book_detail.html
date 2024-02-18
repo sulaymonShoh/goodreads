@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ book.title }}
+{% endblock %}
+{% block content %}
+    <div class="mt-4 row">
+        <div class="col-3 justify-content-center">
+            <img src="{{ book.cover.url }}" alt="No imag..." class="img-thumbnail">
+        </div>
+        <div class="col-6">
+            <h2>{{ book.title }}</h2>
+            <div>
+                <span class="h4">Authors: </span>
+                {% for author in book.authors.all %}
+                    <a href="" class="h4">{{ author.first_name }} {{ author.last_name }}</a>
+                {% endfor %}
+            </div>
+            <div>
+                <span class="h4">Genres: </span>
+                {% for genre in book.genre.all %}
+                    <a href="" class="h4">{{ genre.name }}</a>
+                {% endfor %}
+            </div>
+            <p class="my-3 font-italic">{{ book.description }}</p>
+
+            {% for genre in book.genres.all %}
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}
