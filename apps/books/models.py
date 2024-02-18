@@ -35,9 +35,15 @@ class Author(AbstractModel):
     avatar = models.ImageField(upload_to="authors/avatar/%Y/%m/%d")
     about = models.TextField()
 
+    def __str__(self):
+        return "{0} {1}".format(self.first_name, self.last_name)
+
 
 class BookGenre(AbstractModel):
     name = models.CharField(max_length=28)
+
+    def __str__(self):
+        return self.name
 
 
 class BookReview(AbstractModel):
