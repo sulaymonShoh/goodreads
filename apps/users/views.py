@@ -2,10 +2,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import DetailView
 
 from apps.users.forms import UserRegistrationForm, LoginForm
+from apps.users.models import User
 
 
+# Authorization
 class RegisterView(View):
     def get(self, request):
         form = UserRegistrationForm()
@@ -46,3 +49,13 @@ class LogoutView(View):
         logout(request)
         messages.info(request, 'Logged out successfully')
         return redirect('homepage')
+
+
+###########################################################################
+
+class ProfileView(DetailView):
+    slug_field = "username"
+    slug_url_kwarg = "username"
+    model = User
+    context_object_name = "user"
+    template_name = "users/profile.html"
