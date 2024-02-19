@@ -41,12 +41,15 @@ class Author(AbstractModel):
 
 class BookGenre(AbstractModel):
     name = models.CharField(max_length=28)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
 
 
 class BookReview(AbstractModel):
+    book = models.ForeignKey("books.Book", CASCADE, "reviews")
+    user = models.ForeignKey("users.User", CASCADE, "reviews")
     body = models.TextField()
     rating = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
     like_count = models.IntegerField(default=0)
