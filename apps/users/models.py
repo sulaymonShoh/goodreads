@@ -6,7 +6,7 @@ from apps.shared.models import AbstractModel
 
 
 class User(AbstractUser):
-    avatar = models.ImageField(upload_to="users/avatar/%Y/%m/%d")
+    avatar = models.ImageField(upload_to="users/avatar/%Y/%m/%d", default="default/default_user.jpg")
     middle_name = models.CharField(max_length=56)
 
 
