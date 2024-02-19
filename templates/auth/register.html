@@ -12,6 +12,7 @@
                     {{ form|crispy }}
                     <button type="submit" class="btn btn-primary">Register</button>
                 </form>
+                <p class="py-2">Already a member? <a href="{% url 'users:login' %}">Log in</a></p>
             </div>
         </div>
     </main>
