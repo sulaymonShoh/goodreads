@@ -25,6 +25,9 @@
                 {% endfor %}
             </div>
             <p class="my-3 font-italic">{{ book.description }}</p>
+            {% if user.is_staff %}
+                <a href="{% url 'books:book_update' book.slug %}" class="btn btn-success">Edit book details</a>
+            {% endif %} 
         </div>
     </div>
     <hr>
