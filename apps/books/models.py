@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import CASCADE
+from django.urls import reverse
 
 from apps.shared.models import AbstractModel
 
@@ -21,9 +22,15 @@ class Book(AbstractModel):
     isbn = models.CharField(unique=True, max_length=128)
     language = models.CharField(max_length=14, choices=LanguageChoice.choices)
     page = models.IntegerField()
-    cover = models.ImageField(upload_to="books/cover/%Y/%m/%d")
+    cover = models.ImageField(upload_to="books/cover/%Y/%m/%d", default="default/default_user.jpg", blank=True)
     genre = models.ManyToManyField("books.BookGenre", related_name="books")
     authors = models.ManyToManyField("books.Author", related_name="books")
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("books:book_detail", kwargs={"slug": self.slug})
 
 
 class Author(AbstractModel):
@@ -37,6 +44,9 @@ class Author(AbstractModel):
 
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
+
+    def get_absolute_url(self):
+        return reverse("books:author_detail", kwargs={"pk": self.id})
 
 
 class BookGenre(AbstractModel):

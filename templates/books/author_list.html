@@ -4,13 +4,17 @@
     Author List
 {% endblock %}
 {% block content %}
+    <h2>Authors</h2>
+    <a href="{% url 'books:author_create' %}" class="btn btn-outline-primary">Add new author</a>
     {% for author in authors %}
-        <div class="row border rounded p-2">
-            <div class="col-2  offset-md-2">
-                <img src="{{ author.avatar.url }}" alt="No img..." class="img-fluid rounded-circle">
+
+        <div class="row border rounded p-1 m-2">
+            <div class="col-2">
+                <img src="{{ author.avatar.url }}" alt="No img..." class="img-fluid">
             </div>
             <div class="col-6 py-5">
-                <a href="{% url 'books:author_detail' author.id %}"><h2>{{ author.first_name }} {{ author.last_name }}</h2></a>
+                <a href="{% url 'books:author_detail' author.id %}">
+                    <h2>{{ author.first_name }} {{ author.last_name }}</h2></a>
                 <a href="{{ author.website }}">{{ author.website }}</a>
             </div>
         </div>

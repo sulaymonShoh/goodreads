@@ -5,6 +5,7 @@
 {% endblock %}
 {% block content %}
     <h2 class="my-3">Books</h2>
+    <a href="{% url 'books:book_create' %}" class="btn btn-outline-primary">Add new book</a>
     {% for book in books %}
         <div class="row py-3">
             <div class="col-3">

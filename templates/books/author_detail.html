@@ -6,7 +6,7 @@
 {% block content %}
     <div class="row">
         <div class="col-2 offset-md-1">
-            <img src="{{ author.avatar.url }}" alt="Author Image" class="img-fluid rounded">
+            <img src="{{ author.avatar.url }}" alt="Author Image" class="img-fluid">
         </div>
         <div class="col-6">
             <h2>{{ author.first_name }} {{ author.last_name }}</h2>
@@ -21,6 +21,7 @@
             <span class="d-block"><span class="font-weight-bold">Website: </span>
                 <a href="{{ author.website }}">{{ author.website }}</a>
             </span>
+        <span class="d-block my-2">{{ author.about }}</span>
         </div>
     </div>
     <hr>

@@ -37,7 +37,7 @@ class LoginView(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, 'Logged in successfully')
+                messages.success(request, f'Logged in successfully as {user.username}')
                 return redirect('homepage')
 
         messages.warning(request, 'Username or password wrong')
